@@ -18,9 +18,12 @@ The website for [Entzun](https://entzun.ink): the home page, the privacy policy 
 
 ## Going live
 
+The repository is `ggalmazor/entzun-web`, and the site is set up. For the record, the pieces are:
+
 1. Push to `main`. The workflow publishes the repository root as the site.
-2. In the repository settings, under Pages, set the source to **GitHub Actions** (once).
-3. At the DNS provider, point `entzun.ink` at GitHub Pages: `A` records for `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153` (and the matching `AAAA` records if you want IPv6), plus a `CNAME` from `www` to `<user>.github.io`. Then tick **Enforce HTTPS** in the Pages settings once the certificate is issued.
+2. In the repository settings, under Pages, the source is **GitHub Actions** and the custom domain is `entzun.ink`. Workflow deploys ignore the `CNAME` file, so the domain lives in that setting; the file is kept only as a note.
+3. At DNSimple, `entzun.ink` has `A` records for `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153`, the matching `AAAA` records for `2606:50c0:8000::153` to `2606:50c0:8003::153`, and a `CNAME` from `www` to `ggalmazor.github.io`.
+4. **Enforce HTTPS** is ticked in the Pages settings once GitHub has issued the certificate.
 
 ## When the App Store link exists
 
