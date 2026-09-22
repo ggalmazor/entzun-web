@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Support and FAQ · Entzun</title>
+<meta name="description" content="Answers about Entzun: which files it opens, how syncing works, what “Audio differs from text” means, reading on iPhone and Mac, and how to get help.">
+<meta name="theme-color" content="#FAF8F4" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#121316" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="assets/favicon-32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="/">Entzun</a>
+    <nav class="site-nav" aria-label="Site">
+      <a class="hide-phone" href="/#how">How it works</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="support.html" aria-current="page">Support</a>
+      <span class="pill small hide-phone" aria-disabled="true">App Store · coming soon</span>
+    </nav>
+  </div>
+</header>
+
+<main class="doc">
+  <div class="wrap">
+    <aside>
+      <div class="eyebrow" style="margin-bottom: 4px;">Documents</div>
+      <a href="privacy.html">Privacy policy</a>
+      <a href="support.html" aria-current="page">Support and FAQ</a>
+      <a href="#acknowledgements">Acknowledgements</a>
+      <div class="note">
+        <span>Something not answered here?</span>
+        <a href="mailto:support@entzun.ink">support@entzun.ink</a>
+      </div>
+    </aside>
+
+    <article>
+      <header>
+        <h1>Support</h1>
+        <p class="lede" style="font-size: 19px;">Entzun is made by one person, and the questions below are the ones that come up. If yours is not among them, write to <a href="mailto:support@entzun.ink">support@entzun.ink</a> and you will get an answer from the person who wrote the app.</p>
+      </header>
+
+      <div class="callout">
+        <h2>When a sync came out wrong</h2>
+        <p>Open About in the app and use “Copy diagnostics”. It puts a short report on the clipboard with the app and system versions and the figures each sync produced, and nothing that identifies you or your files. Paste it into a message to <a href="mailto:support@entzun.ink">support@entzun.ink</a> together with the name of the book and, if you can, where in the book the marking goes astray. Switch “Include book titles” on first if you are happy for the titles to be in the report.</p>
+      </div>
+
+      <h2 class="serif">Questions</h2>
+
+      <div class="faq">
+        <details open>
+          <summary>Which files can Entzun open?</summary>
+          <p>Ebooks as EPUB or plain text. Audiobooks as m4b, mp3 or m4a. Both must be files you can pick in the Files app on iPhone or in the Finder on Mac; a book that only exists inside another app's own library, in a format that app protects, cannot be picked and so cannot be added. PDF is not supported yet.</p>
+        </details>
+        <details>
+          <summary>Does it need an internet connection?</summary>
+          <p>No. Everything, including the transcription, happens on the device. The one exception is the first time a language is transcribed: the system may download that language's speech model from Apple. After that Entzun works fully offline. Keeping your library in step between your devices goes through iCloud, so that part needs a connection, but reading never does.</p>
+        </details>
+        <details>
+          <summary>How long does syncing take, and can I read meanwhile?</summary>
+          <p>Minutes, for a long book, and it only has to happen once. The library shows how much of the narration is synced, and you can start reading as soon as the first chapter is done; a chapter that is still syncing opens as plain text you can read without the narration. Keep Entzun open, or let it keep syncing in the background if you have switched that on in Settings.</p>
+        </details>
+        <details>
+          <summary>What does “Audio differs from text” mean?</summary>
+          <p>That the recording does not follow the ebook closely enough for the words to be lined up. The usual reasons are an abridged recording, a different edition or translation, or an audiobook of a different work altogether. Check that both files are the same unabridged text. If they are and it still says so, the diagnostics report above is the quickest way to get it looked at; “Transcribe Again” in the book's details is worth one try first.</p>
+        </details>
+        <details>
+          <summary>The marking drifts, or a few words are skipped</summary>
+          <p>Publisher credits, chapter announcements and other stretches the narrator reads that are not in the book are recognised and set aside, so those should not throw it off. Where the transcription missed a word, its time is worked out from its neighbours, which can be a fraction of a second out. Tapping a word always jumps to its best-known time.</p>
+        </details>
+        <details>
+          <summary>Can I read the same book on my iPhone and my Mac?</summary>
+          <p>Yes. If both are signed in to the same Apple Account with iCloud Drive on for Entzun, a book added on one appears on the other with its alignment already done, and each device knows where you got to. Open a book that is further along on another device and the app asks which place to carry on from before showing a page. Without iCloud you can still add the same two files on each device; they just sync separately and keep their own places.</p>
+        </details>
+        <details>
+          <summary>The app is taking a lot of space</summary>
+          <p>Entzun keeps its own copy of every file you add, so an audiobook you also keep elsewhere is stored twice. After adding a book, Entzun offers to delete the originals you picked; it does this only when asked. Deleting a book from the library removes its files and everything worked out from them, on that device and in iCloud. Audiobooks are large, so a big library also takes room in your iCloud storage.</p>
+        </details>
+        <details>
+          <summary>Which typefaces and reading settings are there?</summary>
+          <p>Newsreader, Atkinson Hyperlegible Next, Lexend, Luciole and OpenDyslexic, at any size, with your own character, word, line and paragraph spacing, natural or justified alignment, the width of the column, a Paper, Sepia, Night or High Contrast palette or the system's choice, and the option to follow the system text size. The spoken word can be marked with a highlight or an underline, and Single sentence shows one sentence at a time.</p>
+        </details>
+        <details>
+          <summary>Which devices does it run on?</summary>
+          <p>iPhone with iOS 26 or later, and Mac with macOS 26 or later. The word-level timing relies on speech analysis Apple added in those releases, which is why earlier systems cannot run it.</p>
+        </details>
+      </div>
+
+      <h2 class="serif" id="acknowledgements">Acknowledgements</h2>
+      <p class="muted">The work of others that ships with the app, and with this site. The typefaces Newsreader, Atkinson Hyperlegible Next, Lexend and OpenDyslexic are used under the SIL Open Font License 1.1; Luciole, by Laurent Bourcellier and Jonathan Perez, under the Creative Commons Attribution 4.0 International licence. EPUB files are opened with ZIPFoundation, by Thomas Zoechling, under the MIT licence. The full notices are in the app, under About, and beside the font files on this site.</p>
+    </article>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-bottom">
+      <nav aria-label="Documents">
+        <a href="privacy.html">Privacy policy</a>
+        <a href="support.html">Support and FAQ</a>
+        <a href="mailto:support@entzun.ink">support@entzun.ink</a>
+      </nav>
+      <span>© 2026 Guillermo Gutierrez Almazor · entzun.ink</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
