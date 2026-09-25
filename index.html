@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Entzun · Read a book and listen to it at the same time</title>
-<meta name="description" content="Entzun takes an ebook and its audiobook, lines them up word by word on your device, and marks each word as the narrator reads it. For iPhone and Mac.">
+<title>Entzun · Read a book and listen to it at the same time. For any book you own.</title>
+<meta name="description" content="Entzun pairs your ebook with its audiobook and marks each word as the narrator reads it. Works with books you already own, entirely on your iPhone or Mac. No account, no subscription.">
 <meta property="og:title" content="Entzun">
-<meta property="og:description" content="Read a book and listen to it at the same time. For iPhone and Mac.">
+<meta property="og:description" content="Entzun pairs your ebook with its audiobook and marks each word as the narrator reads it. Works with books you already own, entirely on your iPhone or Mac. No account, no subscription.">
 <meta property="og:url" content="https://entzun.ink/">
 <meta property="og:image" content="https://entzun.ink/assets/social-card.png">
 <meta property="og:image:width" content="1200">
@@ -29,9 +29,8 @@
       <a class="hide-phone" href="#how">How it works</a>
       <a href="privacy.html">Privacy</a>
       <a href="support.html">Support</a>
-      <!-- When the App Store link exists: replace this span with
-           <a class="pill small" href="https://apps.apple.com/app/idXXXXXXXXX">App Store</a> -->
-      <span class="pill small hide-phone" aria-disabled="true">App Store · coming soon</span>
+      <!-- When the App Store link exists: point this at https://apps.apple.com/app/idXXXXXXXXX and read "App Store" -->
+      <a class="pill small hide-phone" href="/#price">App Store · coming soon</a>
     </nav>
   </div>
 </header>
@@ -42,17 +41,95 @@
     <div class="wrap">
       <div class="hero-copy">
         <h1 class="display-hero">Read a book and <span class="mark-underline">listen</span> to it at the same time.</h1>
-        <p class="lede">Entzun takes an ebook and the audiobook of the same work, works out on your device when every word is spoken, and marks each one as the narrator reads it. Tap a word to hear it from there. Switch the narration off to read in silence, and on again to pick up exactly where your eyes are.</p>
+        <p class="lede">Entzun takes your ebook and its audiobook, lines them up word by word on your device, and lights up each word as the narrator reads it. For dyslexic readers, distracted readers, language learners, and anyone who reads better with a voice alongside.</p>
+        <p class="positioning">Works with the books you already own, from any shop. No account, no server, nothing sent anywhere.</p>
         <div class="cta">
-          <!-- When the App Store link exists: replace this span with
-               <a class="pill" href="https://apps.apple.com/app/idXXXXXXXXX">Get it on the App Store</a>
-               and change the caption below. -->
-          <span class="pill" aria-disabled="true">Get it on the App Store</span>
-          <span class="small">Coming soon to the App Store · iPhone and Mac · Requires iOS 26 or macOS 26</span>
+          <!-- When a pre-order URL or a TestFlight link exists, put it here, under Price and in the footer:
+                 <a class="pill" href="https://apps.apple.com/app/idXXXXXXXXX">Pre-order on the App Store</a>
+                 <a class="pill" href="https://testflight.apple.com/join/XXXXXXXX">Try the beta on TestFlight</a> -->
+          <p class="small">Free to try with one book. Then 19.99 USD/EUR, once, until 1 January 2027. No subscription. iPhone and Mac, iOS 26 or macOS 26.</p>
         </div>
       </div>
-      <div class="hero-shot">
-        <img class="shot-phone" src="assets/screens/reader-iphone-narrating.png" width="390" height="844" alt="The reader on iPhone: a page of Moby-Dick with the word being spoken highlighted, and the player floating low on the page">
+      <figure class="hero-shot">
+        <div class="loop">
+          <!-- The sources only match without reduced motion, so those readers get the poster and nothing plays. -->
+          <video class="shot-phone" data-loop autoplay muted loop playsinline controls width="390" height="844" poster="assets/screens/reader-iphone-narrating.png" aria-label="The reader on iPhone: a page of Moby-Dick with the word being spoken highlighted as the narrator reads">
+            <source src="assets/video/reader-loop.mp4" type="video/mp4" media="(prefers-reduced-motion: no-preference)">
+            <source src="assets/video/reader-loop.webm" type="video/webm" media="(prefers-reduced-motion: no-preference)">
+          </video>
+        </div>
+        <figcaption class="small">The word being read, marked as it is read. Tap any word and the narration goes there.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="section rule" id="who">
+    <div class="wrap stack">
+      <div class="section-head">
+        <div class="eyebrow">Who it is for</div>
+        <h2 class="display">Built for people who read with their ears too.</h2>
+      </div>
+      <div class="grid-3">
+        <div class="card">
+          <h3 class="h3">If a page of text is hard going.</h3>
+          <p class="muted">Hearing each word as you see it is one of the oldest ways to make reading stick. Dyslexic readers, readers with ADHD and readers with low vision have used paired text and audio for decades. Entzun does it with any book, at your speed, in the typeface and spacing that work for you.</p>
+        </div>
+        <div class="card">
+          <h3 class="h3">If audio alone loses you.</h3>
+          <p class="muted">Audiobooks are easy to drift out of. With the page in front of you, a wandering mind has somewhere to land, and a tap on any word takes the narrator back to it.</p>
+        </div>
+        <div class="card">
+          <h3 class="h3">If you are reading in a second language.</h3>
+          <p class="muted">See the spelling while you hear the pronunciation, slow the narrator to 1×, and tap a sentence as many times as you need. Nothing is looked up or sent anywhere.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section well" id="accessibility">
+    <div class="wrap stack">
+      <div class="section-head split">
+        <div>
+          <div class="eyebrow">Accessibility</div>
+          <h2 class="display">Reading is not one thing, so the page is not one thing either.</h2>
+        </div>
+        <p class="muted">Hearing the words is half of it. The rest of the reader is built so that the page itself can get out of the way.</p>
+      </div>
+      <div class="grid-3">
+        <div class="card">
+          <h3 class="h3">Typefaces chosen for legibility</h3>
+          <p class="muted">Five faces, each there for a reason. Atkinson Hyperlegible Next and Luciole were drawn for low vision, Lexend to reduce visual stress, and OpenDyslexic weights the bottom of each letter so lines stop swimming. Newsreader is the book face.</p>
+          <div class="face-list">
+            <div><span class="face-newsreader">Call me Ishmael.</span><span class="eyebrow">Newsreader</span></div>
+            <div><span class="face-atkinson">Call me Ishmael.</span><span class="eyebrow">Atkinson</span></div>
+            <div><span class="face-lexend">Call me Ishmael.</span><span class="eyebrow">Lexend</span></div>
+            <div><span class="face-luciole">Call me Ishmael.</span><span class="eyebrow">Luciole</span></div>
+            <div><span class="face-opendyslexic">Call me Ishmael.</span><span class="eyebrow">OpenDyslexic</span></div>
+          </div>
+        </div>
+        <div class="card">
+          <h3 class="h3">One sentence at a time</h3>
+          <p class="muted">Single sentence mode shows only the sentence being narrated, in the middle of the page, and moves on when the narrator does. On a full page, the sentence being read stays at full strength and the rest steps back.</p>
+          <div class="sentence-demo" aria-hidden="true">
+            <span class="receded">and with a high raised voice exclaiming:</span>
+            <span>“Whosoever of ye raises me a white-headed <span class="word">whale</span> with a wrinkled brow and a crooked jaw;</span>
+            <span class="receded">whosoever of ye raises me that white-headed whale,</span>
+          </div>
+        </div>
+        <div class="card">
+          <h3 class="h3">Every spacing on the page is yours</h3>
+          <div class="spacing-demo" data-spacing-demo>
+            <p>Text size, or follow the system. The space between characters, words, lines and paragraphs, each on its own slider.</p>
+            <p>Natural or justified alignment, and the width of the column. Paper, Sepia, Night, High Contrast, or the system's palette.</p>
+            <p>The spoken word marked with a highlight or an underline.<span data-needs-script hidden> Try the sliders on this very text.</span></p>
+          </div>
+          <div class="sliders" data-needs-script hidden>
+            <label><span>Characters</span><input type="range" min="0" max="3" step="0.1" value="0" data-spacing="characters" aria-label="Character spacing"></label>
+            <label><span>Words</span><input type="range" min="0" max="12" step="0.5" value="0" data-spacing="words" aria-label="Word spacing"></label>
+            <label><span>Lines</span><input type="range" min="1.2" max="2.4" step="0.05" value="1.5" data-spacing="lines" aria-label="Line spacing"></label>
+            <label><span>Paragraphs</span><input type="range" min="0" max="40" step="1" value="12" data-spacing="paragraphs" aria-label="Paragraph spacing"></label>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -67,17 +144,17 @@
         <div class="card">
           <div class="numeral">1</div>
           <h3 class="h3">Add both files</h3>
-          <p class="muted">Pick the ebook, as EPUB or plain text, and the audiobook, as m4b, mp3 or m4a. Entzun copies them into its own library and offers to delete the originals if you want the space back.</p>
+          <p class="muted">Pick the ebook, as EPUB or plain text, and the audiobook, as m4b, mp3 or m4a. Entzun keeps its own copy and offers to delete the originals.</p>
         </div>
         <div class="card">
           <div class="numeral">2</div>
           <h3 class="h3">It syncs on your device</h3>
-          <p class="muted">The narration is transcribed with the speech recogniser built into iOS and macOS, then lined up with the text word by word. Syncing a long book takes minutes, and you can start reading the chapters that are done while the rest catches up.</p>
+          <p class="muted">The speech recogniser built into iOS and macOS transcribes the narration, and Entzun lines it up with the text word by word. A long book takes minutes, once, and you can start reading as soon as the first chapter is done.</p>
         </div>
         <div class="card">
           <div class="numeral">3</div>
           <h3 class="h3">Read and listen</h3>
-          <p class="muted">Open the book and the narration starts where you left off. The word being spoken is marked, the sentence being read stays around the middle of the page, and everything else steps back.</p>
+          <p class="muted">Open the book and the narration starts where you left off. The word being spoken is marked, and the sentence being read stays in the middle of the page.</p>
         </div>
       </div>
     </div>
@@ -90,7 +167,7 @@
           <div class="eyebrow">The reader</div>
           <h2 class="display">The page is the whole point.</h2>
         </div>
-        <p class="muted">Nothing sits over the sentence being read. Panels push the page down, the player floats well below the reading line, and the controls can be hidden until it is just the book.</p>
+        <p class="muted">Nothing sits over the sentence being read. The player floats well below it, and the controls can be hidden until it is just the book.</p>
       </div>
       <div class="reader-pair">
         <img class="shot-mac" src="assets/screens/reader-mac-narrating.png" width="1280" height="800" alt="The reader on Mac: a column of text with the spoken word highlighted and the player card floating below it">
@@ -101,94 +178,37 @@
         <div>
           <div class="eyebrow">Hide controls</div>
           <h3 class="title-detail">Everything but the book, gone.</h3>
-          <p>One tap and the toolbar, the player and the clock leave the screen. What stays is the page, edge to edge, with the word being spoken still marked and the sentence being read still held in the middle. The narration carries on; the screen stops asking for anything. Tap again when you want the controls back, or skip fifteen seconds without them from your earphones.</p>
-          <p>On the Mac it is the same: the reader fills the window and the window can fill the screen.</p>
+          <p>One tap and the toolbar, the player and the clock leave the screen. The page stays, edge to edge, and the narration carries on.</p>
         </div>
       </div>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="wrap stack">
-      <h2 class="display" style="max-width: 700px;">Built for people who read with their ears too.</h2>
-      <div class="grid-3 loose">
-        <div class="feature">
-          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 8h1.5M4.5 5v6M7 3v10M9.5 6v4M12 4.5v7M14 8h-1"/></svg>
-          <h3>Tap a word, hear it</h3>
-          <p>Any word on the page is a place in the recording. Tap it and the narration jumps there; scroll away and a pill offers to return to where the narrator is.</p>
+      <div class="grid-3 loose features">
+        <div class="feature with-loop">
+          <div class="loop">
+            <video class="shot-phone" data-loop autoplay muted loop playsinline controls width="390" height="844" poster="assets/screens/reader-iphone-narrating.png" aria-label="A tap on a later word, and the highlight and the narration jump there">
+              <source src="assets/video/reader-loop.mp4" type="video/mp4" media="(prefers-reduced-motion: no-preference)">
+              <source src="assets/video/reader-loop.webm" type="video/webm" media="(prefers-reduced-motion: no-preference)">
+            </video>
+          </div>
+          <div>
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 8h1.5M4.5 5v6M7 3v10M9.5 6v4M12 4.5v7M14 8h-1"/></svg>
+            <h3>Tap a word, hear it</h3>
+            <p>Every word on the page is a place in the recording. Tap one and the narration jumps there; scroll away and a pill takes you back.</p>
+          </div>
         </div>
         <div class="feature">
           <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 4.5h10M3 8h10M3 11.5h6"/></svg>
           <h3>Silence when you want it</h3>
-          <p>Pause the narration and keep reading as you would any ebook. Start it again and it resumes from the sentence you are on, not from where it stopped.</p>
-        </div>
-        <div class="feature">
-          <span class="aa" aria-hidden="true">Aa</span>
-          <h3>Set the page your way</h3>
-          <p>Five typefaces, five palettes, and every spacing on the page under your control. The spoken word is marked with a highlight or an underline, whichever you read better. <a href="#accessibility">More on accessibility below.</a></p>
-        </div>
-        <div class="feature">
-          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="3" width="12" height="10" rx="1.5"/><path d="M5 6.5h6M5 9.5h4"/></svg>
-          <h3>One sentence at a time</h3>
-          <p>Single sentence mode shows only what is being read right now, for when a full page is more than you want in front of you. Chapters keep their real titles, in book order.</p>
+          <p>Pause the narration and read as you would any ebook. Start it again and it picks up from the sentence you are on.</p>
         </div>
         <div class="feature">
           <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4.5" y="1.5" width="7" height="13" rx="1.5"/><path d="M7 12.5h2"/></svg>
           <h3>iPhone and Mac</h3>
-          <p>Built natively for each, in SwiftUI, with the same library and the same reader. Signed in to iCloud, a book added on one is on the other, synced, at the same page. <a href="#sync">How that works.</a></p>
+          <p>Native on each, with the same library and reader; on the Mac it can fill the screen. With iCloud, a book added on one is on the other, at the same page. <a href="support.html#sync">How sync works.</a></p>
         </div>
         <div class="feature">
           <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="8" cy="8" r="6"/><path d="M8 5v3l2 1.5"/></svg>
           <h3>Playback that fits the book</h3>
-          <p>Skip back and forward fifteen seconds, choose a speed from 1× up to 1.7×, and see the time played and the time left for the whole recording.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section well" id="accessibility">
-    <div class="wrap stack">
-      <div class="section-head split">
-        <div>
-          <div class="eyebrow">Accessibility</div>
-          <h2 class="display">Reading is not one thing, so the page is not one thing either.</h2>
-        </div>
-        <p class="muted">Hearing the words while you see them already helps many people who find a page of text hard going. The rest of the reader is built so that the page itself can get out of the way.</p>
-      </div>
-      <div class="grid-3">
-        <div class="card">
-          <h3 class="h3">Typefaces chosen for legibility</h3>
-          <p class="muted">Five faces, each there for a reason. Newsreader is the book face. Atkinson Hyperlegible Next was designed for low vision, with letters that cannot be mistaken for one another. Lexend was made to reduce visual stress. Luciole was drawn for readers with low vision, and OpenDyslexic weights the bottom of each letter so lines of text stop swimming.</p>
-          <div class="face-list">
-            <div><span class="face-newsreader">Call me Ishmael.</span><span class="eyebrow">Newsreader</span></div>
-            <div><span class="face-atkinson">Call me Ishmael.</span><span class="eyebrow">Atkinson</span></div>
-            <div><span class="face-lexend">Call me Ishmael.</span><span class="eyebrow">Lexend</span></div>
-            <div><span class="face-luciole">Call me Ishmael.</span><span class="eyebrow">Luciole</span></div>
-            <div><span class="face-opendyslexic">Call me Ishmael.</span><span class="eyebrow">OpenDyslexic</span></div>
-          </div>
-        </div>
-        <div class="card">
-          <h3 class="h3">One sentence at a time</h3>
-          <p class="muted">Single sentence mode holds only the sentence being narrated in the middle of the page and keeps the rest of the chapter out of sight. There is nothing above or below to wander into, nothing to lose your place in, and the page moves on by itself when the narrator does. For a full page, the sentence being read stays at full strength and the rest steps back.</p>
-          <div class="sentence-demo" aria-hidden="true">
-            <span class="receded">and with a high raised voice exclaiming:</span>
-            <span>“Whosoever of ye raises me a white-headed <span class="word">whale</span> with a wrinkled brow and a crooked jaw;</span>
-            <span class="receded">whosoever of ye raises me that white-headed whale,</span>
-          </div>
-        </div>
-        <div class="card">
-          <h3 class="h3">Every spacing on the page is yours</h3>
-          <div class="spacing-demo" data-spacing-demo>
-            <p>Text size, or follow the system size. The space between characters, between words, between lines and between paragraphs, each on its own slider.</p>
-            <p>Natural or justified alignment, and the width of the column. Five palettes: Paper, Sepia, Night, High Contrast, or whatever the system is doing.</p>
-            <p>The spoken word marked with a highlight or an underline. Try the sliders on this very text.</p>
-          </div>
-          <div class="sliders">
-            <label><span>Characters</span><input type="range" min="0" max="3" step="0.1" value="0" data-spacing="characters" aria-label="Character spacing"></label>
-            <label><span>Words</span><input type="range" min="0" max="12" step="0.5" value="0" data-spacing="words" aria-label="Word spacing"></label>
-            <label><span>Lines</span><input type="range" min="1.2" max="2.4" step="0.05" value="1.5" data-spacing="lines" aria-label="Line spacing"></label>
-            <label><span>Paragraphs</span><input type="range" min="0" max="40" step="1" value="12" data-spacing="paragraphs" aria-label="Paragraph spacing"></label>
-          </div>
+          <p>Skip fifteen seconds either way, choose a speed from 1× to 1.7×, and see the time played and left.</p>
         </div>
       </div>
     </div>
@@ -200,32 +220,63 @@
         <div class="lead narrow">
           <div class="eyebrow">The library</div>
           <h2 class="display">A shelf that says what is going on.</h2>
-          <p class="muted">Every book gets its cover, its colour and one line of truth under it: how long the narration is, how much of it has synced so far, or, when the recording turns out not to follow the text, a plain “Audio differs from text”.</p>
+          <p class="muted">Under every cover, one line of truth: how long the narration is, how much has synced, or, when the recording does not follow the text, a plain “Audio differs from text”.</p>
         </div>
-        <img class="shot-mac" src="assets/screens/library-mac.png" width="1280" height="800" alt="The library on Mac: a grid of book tiles in deep muted colours, one still syncing, one marked Audio differs from text">
+        <img class="shot-mac" src="assets/screens/library-mac.png" width="1280" height="800" alt="The library on Mac: a grid of book tiles in deep muted colours, one still syncing and one flagged as not matching its text">
       </div>
     </div>
   </section>
 
-  <section class="section rule" id="sync">
+  <!-- PLACEHOLDER: replace the three quotes and names below with real ones from beta readers, then remove
+       the is-placeholder class from this section so it shows. Until then it is hidden and cannot ship by accident. -->
+  <section class="section rule is-placeholder" id="beta">
+    <div class="wrap stack">
+      <h2 class="title-detail">From the beta</h2>
+      <div class="grid-3 quotes">
+        <figure class="card">
+          <blockquote><p>[QUOTE 1 - a dyslexic reader or the parent of one]</p></blockquote>
+          <figcaption class="small">[Name, city]</figcaption>
+        </figure>
+        <figure class="card">
+          <blockquote><p>[QUOTE 2 - someone who finishes more books this way]</p></blockquote>
+          <figcaption class="small">[Name]</figcaption>
+        </figure>
+        <figure class="card">
+          <blockquote><p>[QUOTE 3 - a language learner]</p></blockquote>
+          <figcaption class="small">[Name]</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="section rule" id="books">
     <div class="wrap two-col">
       <div class="lead">
-        <div class="eyebrow">Across your devices</div>
-        <h2 class="display">Start on the sofa, carry on at the bus stop.</h2>
-        <p class="muted">Add a book on your Mac and it is on your iPhone: the ebook, the audiobook, the word-by-word alignment that took minutes to work out, and the sentence you stopped at. Nothing to set up on the second device, nothing to sync again. Close the book on one and open it on the other, and the narration picks up where you were.</p>
-        <p class="muted">It travels through the private iCloud storage of your own Apple Account, the same place your Notes and Photos live, so it needs a device signed in to iCloud, and space there for your audiobooks. Nobody else, the developer included, can read it.</p>
+        <div class="eyebrow">Where to get books</div>
+        <h2 class="display">Two files, and where to find them.</h2>
+        <p class="muted">Entzun does not sell books. You bring the ebook and the audiobook, and they need to be files you can open, not ones locked to another app. That rules out Audible and Kindle purchases, which are protected. It leaves plenty:</p>
       </div>
-      <div class="rest sync">
-        <div class="device-row">
-          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1.5" y="3" width="13" height="9" rx="1.5"/><path d="M5 14h6"/></svg>
-          <div><span class="name">Mac · Moby-Dick; or, The Whale</span><span class="pos">The Quarter-Deck · 41% · added here, synced here</span></div>
-        </div>
-        <div class="sync-arrow"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 2v12M4 10l4 4 4-4"/></svg></div>
-        <div class="device-row">
-          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4.5" y="1.5" width="7" height="13" rx="1.5"/><path d="M7 12.5h2"/></svg>
-          <div><span class="name">iPhone · Moby-Dick; or, The Whale</span><span class="pos">The Quarter-Deck · 41% · nothing to add, nothing to sync</span></div>
-        </div>
-        <p class="small" style="margin-top: 12px;">Read on both without iCloud and each device keeps its own place; when the two disagree, the app asks which to carry on from before showing a page.</p>
+      <div class="rest">
+        <ul class="book-sources">
+          <li>Libro.fm and Downpour sell audiobooks as plain files you keep.</li>
+          <li>Project Gutenberg and Standard Ebooks have tens of thousands of out-of-copyright ebooks; LibriVox has free recordings of many of them. Quality varies, so look for a single-narrator reading.</li>
+          <li>Audiobook CDs you own rip to mp3 or m4a with the tools already on your Mac.</li>
+          <li>Ebooks from any shop that sells them without protection, and any EPUB you already have.</li>
+        </ul>
+        <p class="muted">A studio recording of the same edition, one narrator, unabridged, gives the best result.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section well" id="price">
+    <div class="wrap two-col">
+      <div class="lead">
+        <div class="eyebrow">Price</div>
+        <h2 class="display">One price. No account.</h2>
+      </div>
+      <div class="rest">
+        <p class="muted price-body">Entzun is free to download, with one book unlocked in full, so you can see your own files line up before you pay anything. Unlocking it for every book is 24.99 USD/EUR, once, for iPhone and Mac together, or 19.99 until 1 January 2027. Family Sharing covers everyone in your household.</p>
+        <p class="muted price-body">Reading apps sold by subscription cost more than that every year. Entzun has no subscription, nothing to sign up for and nothing that stops working if a server goes away, because there is no server.</p>
       </div>
     </div>
   </section>
@@ -249,12 +300,11 @@
       <div class="lead narrow">
         <div class="eyebrow">Before you buy</div>
         <h2 class="title-detail">What Entzun needs from you</h2>
+        <p class="muted">An iPhone on iOS 26 or a Mac on macOS 26, and two things more. The free book lets you check both before you pay.</p>
       </div>
       <div class="grid-2 muted" style="flex-grow: 1;">
-        <p><strong>Both files, yours.</strong> Entzun does not sell books or fetch them. You bring the ebook and the audiobook, in formats the app can open.</p>
-        <p><strong>An unabridged recording.</strong> It works best with a studio audiobook: one narrator, clean audio, read faithfully from the same text.</p>
-        <p><strong>A recent system.</strong> Word-level timing uses Apple's on-device speech analysis, so it needs iOS 26 or macOS 26.</p>
-        <p><strong>A little patience the first time.</strong> Syncing a long book takes minutes, but you can start reading as soon as the first chapter is synced while the rest catches up. It shows its progress and it only has to happen once.</p>
+        <p><strong>Both files, yours.</strong> The ebook and the audiobook, as files you can open. <a href="#books">Where to find them.</a></p>
+        <p><strong>The same text, read in full.</strong> An abridged recording or a different edition will not line up with the words on the page.</p>
       </div>
     </div>
   </section>
@@ -268,7 +318,6 @@
         <span class="brand"><svg class="mark" viewBox="0 0 160 160" aria-hidden="true" fill="none" stroke-width="15" stroke-linecap="round" stroke-linejoin="round"><g stroke="currentColor"><path d="M38.77 10H121.23C129.46 10 136.23 16.77 136.23 25V110C136.23 118.23 129.46 125 121.23 125H78.77L48.77 150V125H38.77C30.54 125 23.77 118.23 23.77 110V25C23.77 16.77 30.54 10 38.77 10Z"/><path d="M48.77 10V125"/><path d="M68.77 42.5H114.96M68.77 92.5H114.96M68.77 67.5H76.27"/></g><path d="M96.92 67.5H114.96" stroke="#C2570B"/></svg><span>Entzun</span></span>
         <span class="small" style="font-size: 14px;">Read a book and listen to it at the same time. For iPhone and Mac.</span>
       </div>
-      <span class="pill medium" aria-disabled="true">Get it on the App Store</span>
     </div>
     <div class="footer-bottom">
       <nav aria-label="Documents">
@@ -276,7 +325,10 @@
         <a href="support.html">Support and FAQ</a>
         <a href="mailto:support@entzun.ink">support@entzun.ink</a>
       </nav>
-      <span>© 2026 Guillermo Gutierrez Almazor · entzun.ink</span>
+      <div class="footer-legal">
+        <span>Entzun is the Basque word for "listen".</span>
+        <span>© 2026 Guillermo Gutierrez Almazor · entzun.ink</span>
+      </div>
     </div>
   </div>
 </footer>

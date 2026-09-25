@@ -11,9 +11,10 @@ The website for [Entzun](https://entzun.ink): the home page, the privacy policy 
 | `support.html` | Support, FAQ and acknowledgements |
 | `404.html` | Served by Pages for unknown paths |
 | `assets/site.css` | All styles. The colour, type, spacing and radius values are the app's design tokens (`docs/design/tokens.json` in the app repo), in Paper (light) and Night (dark) via `prefers-color-scheme`. |
-| `assets/site.js` | The spacing sliders in the accessibility section. Nothing else runs script. |
+| `assets/site.js` | The spacing sliders in the accessibility section and the pause button on the looping videos. Nothing else runs script, and the page reads fine without it. |
 | `assets/fonts/` | Newsreader, Atkinson Hyperlegible Next, Lexend, Luciole and OpenDyslexic, self-hosted, with their licence files beside them. Copied from `App/Entzun/Fonts` in the app repo. |
 | `assets/screens/` | Rendered screens from `docs/design/screens` in the app repo. |
+| `assets/video/` | `reader-loop.mp4` and `reader-loop.webm`, the reader loop in the hero and in the "Tap a word, hear it" card. Same aspect as `reader-iphone-narrating.png`, which is their poster. |
 | `assets/logo/` | The Entzun mark. `entzun-logo.svg` is the editable master; the flattened marks, the App Store icon, and the lockups are derived from it, and its `README.md` holds the rules and the prompt for rebuilding everything when the mark changes. |
 | `assets/*.png` | `favicon-16.png`, `favicon-32.png`, `apple-touch-icon.png`, `icon-512.png`, and `social-card.png`, rendered from `assets/logo/` with headless Chromium. Re-render them rather than editing them. |
 | `CNAME` | The custom domain, so Pages keeps it across deploys. |
@@ -29,7 +30,13 @@ The repository is `ggalmazor/entzun-web`, and the site is set up. For the record
 
 ## When the App Store link exists
 
-Search the three pages for `coming soon` and `aria-disabled`. Each greyed-out pill is a `<span>`; replace it with an `<a class="pill …" href="https://apps.apple.com/app/id…">` as the comments in `index.html` show, and change the caption under the hero button. Apple's own App Store badge can go in the hero in place of the plain pill; it is downloadable from Apple's marketing resources and comes with its own rules on size and clearance.
+There is no call to action on the home page until a link exists. The comment above the price line in the hero has the markup for both cases: `Pre-order on the App Store` for a pre-order URL, or `Try the beta on TestFlight` for a TestFlight link. Put the same link in the hero, under Price, and in the footer.
+
+The header pill on every page reads "App Store · coming soon" and links to the price section; point it at the App Store once the listing exists. Apple's own App Store badge can go in the hero in place of the plain pill; it is downloadable from Apple's marketing resources and comes with its own rules on size and clearance.
+
+The launch price, 19.99 until 1 January 2027, is in the hero line and in the Price section. Once it ends, take it out of both and leave 24.99.
+
+The "From the beta" section carries the class `is-placeholder`, which hides it. Remove the class once the quotes in it are real.
 
 ## Editing
 
