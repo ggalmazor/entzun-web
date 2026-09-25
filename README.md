@@ -14,6 +14,8 @@ The website for [Entzun](https://entzun.ink): the home page, the privacy policy 
 | `assets/site.js` | The spacing sliders in the accessibility section. Nothing else runs script. |
 | `assets/fonts/` | Newsreader, Atkinson Hyperlegible Next, Lexend, Luciole and OpenDyslexic, self-hosted, with their licence files beside them. Copied from `App/Entzun/Fonts` in the app repo. |
 | `assets/screens/` | Rendered screens from `docs/design/screens` in the app repo. |
+| `assets/logo/` | The Entzun mark. `entzun-logo.svg` is the editable master; the flattened marks, the App Store icon, and the lockups are derived from it, and its `README.md` holds the rules and the prompt for rebuilding everything when the mark changes. |
+| `assets/*.png` | `favicon-16.png`, `favicon-32.png`, `apple-touch-icon.png`, `icon-512.png`, and `social-card.png`, rendered from `assets/logo/` with headless Chromium. Re-render them rather than editing them. |
 | `CNAME` | The custom domain, so Pages keeps it across deploys. |
 
 ## Going live
