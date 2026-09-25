@@ -165,14 +165,12 @@ p { margin: 0; }
 .reader-pair { display: flex; align-items: flex-end; gap: 24px; }
 .reader-pair .shot-mac { width: 828px; }
 .reader-pair .shot-phone { width: 300px; }
-.hide-controls { display: flex; align-items: center; gap: 64px; padding-top: 24px; border-top: 1px solid var(--hairline); }
-.hide-controls .shot-phone { width: 300px; flex-shrink: 0; }
-.hide-controls > div { display: flex; flex-direction: column; gap: 16px; max-width: 560px; }
-.hide-controls p { color: var(--ink-secondary); }
+.spotlight { display: flex; align-items: center; gap: 64px; padding-top: 24px; border-top: 1px solid var(--hairline); }
+.spotlight .shot-phone, .spotlight .loop { width: 300px; flex-shrink: 0; }
+.spotlight.flip { flex-direction: row-reverse; justify-content: space-between; }
+.spotlight > div:not(.loop) { display: flex; flex-direction: column; gap: 16px; max-width: 560px; }
+.spotlight p { color: var(--ink-secondary); }
 .features { padding-top: 24px; border-top: 1px solid var(--hairline); }
-.feature.with-loop { grid-column: 1 / -1; flex-direction: row; align-items: center; gap: 32px; }
-.feature.with-loop .loop, .feature.with-loop .shot-phone { width: 220px; flex-shrink: 0; }
-.feature.with-loop > div:last-child { display: flex; flex-direction: column; gap: 10px; max-width: 440px; }
 
 /* Accessibility */
 .face-list { display: flex; flex-direction: column; gap: 8px; padding-top: 8px; border-top: 1px solid var(--hairline); }
@@ -270,12 +268,11 @@ p { margin: 0; }
   .hero .wrap { flex-direction: column; align-items: flex-start; gap: 32px; }
   .hero-shot { width: 100%; align-items: flex-start; }
   .hero-shot figcaption { text-align: left; }
-  .feature.with-loop { flex-direction: column; align-items: flex-start; gap: 20px; }
   .footer-legal { align-items: flex-start; }
-  .shot-phone, .hero-shot .shot-phone, .reader-pair .shot-phone, .hide-controls .shot-phone { width: min(350px, 100%); }
+  .shot-phone, .hero-shot .shot-phone, .reader-pair .shot-phone, .spotlight .shot-phone, .spotlight .loop { width: min(350px, 100%); }
   .reader-pair { flex-direction: column; align-items: flex-start; }
   .reader-pair .shot-mac { width: 100%; }
-  .hide-controls { flex-direction: column-reverse; align-items: flex-start; gap: 20px; }
+  .spotlight, .spotlight.flip { flex-direction: column-reverse; align-items: flex-start; gap: 20px; }
   .library .wrap { flex-direction: column; align-items: flex-start; gap: 24px; }
   .library .shot-mac { width: 100%; }
   .footer-top { flex-direction: column; align-items: flex-start; gap: 20px; }
