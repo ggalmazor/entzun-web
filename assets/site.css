@@ -94,7 +94,9 @@ p { margin: 0; }
 /* Header */
 .site-header { border-bottom: 1px solid var(--hairline); }
 .site-header .wrap { height: 72px; display: flex; align-items: center; justify-content: space-between; }
-.brand { font-family: var(--font-book); font-size: 26px; font-weight: 500; letter-spacing: -0.01em; text-decoration: none; }
+.brand { display: inline-flex; align-items: center; gap: 10px; font-family: var(--font-book); font-size: 26px; font-weight: 500; letter-spacing: -0.01em; text-decoration: none; color: var(--ink); }
+.brand .mark { width: 28px; height: 28px; flex-shrink: 0; }
+.footer-top .brand .mark { width: 32px; height: 32px; }
 .site-nav { display: flex; align-items: center; gap: 32px; font-size: 15px; font-weight: 600; }
 .site-nav a { text-decoration: none; }
 .site-nav a[aria-current="page"] { border-bottom: 2px solid var(--ink); padding-bottom: 2px; }

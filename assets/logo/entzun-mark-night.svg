@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" width="160" height="160">
+  <!-- Entzun mark. 160-unit box, 15-unit stroke. ink on Paper #1C1B19, on Night #E6E3DD; the marked word is always #C2570B. -->
+  <g fill="none" stroke-width="15" stroke-linecap="round" stroke-linejoin="round">
+    <g id="page" stroke="#E6E3DD">
+      <path id="bubble" d="M38.77 10.00H121.23C129.46 10.00 136.23 16.77 136.23 25.00V110.00C136.23 118.23 129.46 125.00 121.23 125.00H78.77L48.77 150.00V125.00H38.77C30.54 125.00 23.77 118.23 23.77 110.00V25.00C23.77 16.77 30.54 10.00 38.77 10.00Z"/>
+      <path id="spine" d="M48.77 10.00V125.00"/>
+      <path id="lines" d="M68.77 42.50H114.96M68.77 92.50H114.96M68.77 67.50H76.27"/>
+    </g>
+    <path id="word" d="M96.92 67.50H114.96" stroke="#C2570B"/>
+  </g>
+</svg>

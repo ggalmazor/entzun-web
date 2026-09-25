@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 160 160" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;">
+    <g transform="matrix(1,0,0,1,-5.23291,-1)">
+        <g id="page">
+            <g>
+                <g id="bubble" transform="matrix(1,0,0,1,4,-4)">
+                    <path d="M40,15L122.466,15C130.695,15 137.466,21.771 137.466,30L137.466,115C137.466,123.229 130.695,130 122.466,130L80,130L50,155L50,130L40,130C31.771,130 25,123.229 25,115L25,30C25,21.771 31.771,15 40,15Z" style="fill:none;fill-rule:nonzero;stroke:rgb(28,27,25);stroke-width:15px;"/>
+                </g>
+                <g id="spine" transform="matrix(1,0,0,1,4,-4)">
+                    <path d="M50,15L50,130" style="fill:none;fill-rule:nonzero;stroke:rgb(28,27,25);stroke-width:15px;"/>
+                </g>
+                <g id="lines" transform="matrix(1,0,0,1,4,-4)">
+                    <path d="M70,47.5L116.192,47.5M70,97.5L116.192,97.5M70,72.5L77.5,72.5" style="fill:none;fill-rule:nonzero;stroke:rgb(28,27,25);stroke-width:15px;"/>
+                </g>
+                <g id="word" transform="matrix(1,0,0,1,4,-4)">
+                    <path d="M98.157,72.5L116.192,72.5" style="fill:none;fill-rule:nonzero;stroke:rgb(194,87,11);stroke-width:15px;"/>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
