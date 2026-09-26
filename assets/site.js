@@ -218,7 +218,7 @@
   function walk(art) {
     var line = words(art.querySelector('[data-walk]'));
     var tap = art.querySelector('.who-tap');
-    var REST = Math.min(line.length - 1, 12);
+    var REST = Math.min(line.length - 1, parseInt(art.getAttribute('data-walk-rest'), 10) || 12);
     var timer = null, current = null;
     function mark(word) {
       if (current) current.el.classList.remove('is-now');
@@ -251,6 +251,18 @@
   }
   var arts = document.querySelectorAll('[data-walk-art]');
   for (var k = 0; k < arts.length; k++) walk(arts[k]);
+
+  // The other pictures (the file slots, the lining up, the price chart, what stays on the device,
+  // what Entzun needs) are drawn finished; with script they start empty and play in each time they
+  // come into view.
+  var plays = document.querySelectorAll('[data-play]');
+  if (plays.length && window.IntersectionObserver && !(reduce && reduce.matches)) {
+    document.documentElement.classList.add('js-play');
+    var watch = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) { entry.target.classList.toggle('is-played', entry.isIntersecting); });
+    }, { threshold: 0.6 });
+    for (var m = 0; m < plays.length; m++) watch.observe(plays[m]);
+  }
 })();
 
 (function () {
@@ -272,6 +284,8 @@
     height = window.innerHeight;
     room = height * ROOM;
     root.style.setProperty('--pin-room', room + 'px');
+    var footer = document.querySelector('.site-footer');
+    if (footer) root.style.setProperty('--footer-height', footer.offsetHeight + 'px');
     sections.forEach(function (section) {
       var wrap = section.querySelector(':scope > .wrap');
       var own = wrap.offsetHeight;
