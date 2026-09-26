@@ -274,14 +274,17 @@
   });
   var ROOM = 0.9;
   var EDGE = 32;
-  var height = 0, room = 0, queued = false;
+  var height = 0, headerHeight = 0, room = 0, queued = false;
 
   function clamp(value) { return Math.max(0, Math.min(1, value)); }
 
-  // A section that fits the window is held in its middle; a taller one scrolls until its end is in
-  // view and is held there.
+  // A section that fits under the header is held in the middle of what the header leaves; a taller
+  // one scrolls until its end is in view and is held there.
   function measure() {
     height = window.innerHeight;
+    var header = document.querySelector('.site-header');
+    headerHeight = header ? header.offsetHeight : 0;
+    root.style.setProperty('--header-height', headerHeight + 'px');
     room = height * ROOM;
     root.style.setProperty('--pin-room', room + 'px');
     var footer = document.querySelector('.site-footer');
@@ -289,7 +292,8 @@
     sections.forEach(function (section) {
       var wrap = section.querySelector(':scope > .wrap');
       var own = wrap.offsetHeight;
-      var stick = own <= height - 2 * EDGE ? (height - own) / 2 : height - own - EDGE;
+      var below = height - headerHeight;
+      var stick = own <= below - 2 * EDGE ? headerHeight + (below - own) / 2 : height - own - EDGE;
       section.style.setProperty('--stick', Math.round(stick) + 'px');
       section.pinnedBottom = stick + own;
     });
