@@ -27,7 +27,6 @@
 
 (function () {
   var frames = document.querySelectorAll('[data-reader-emu]');
-  if (!frames.length) return;
   var reduce = window.matchMedia ? window.matchMedia('(prefers-reduced-motion: reduce)') : null;
   var PLAYED = 10 * 3600 + 5 * 60 + 42;
   var TOTAL = PLAYED + 14 * 3600 + 31 * 60 + 18;
@@ -213,6 +212,45 @@
   }
 
   for (var i = 0; i < frames.length; i++) setUp(frames[i]);
+
+  // The pictures in "Who it is for": each narrates its line once when it comes into view, a few
+  // seconds, and comes to rest on a marked word. Scrolling away and back plays it again.
+  function walk(art) {
+    var line = words(art.querySelector('[data-walk]'));
+    var tap = art.querySelector('.who-tap');
+    var REST = Math.min(line.length - 1, 12);
+    var timer = null, current = null;
+    function mark(word) {
+      if (current) current.el.classList.remove('is-now');
+      current = word;
+      word.el.classList.add('is-now');
+    }
+    function play() {
+      var at = 0;
+      art.classList.add('is-playing');
+      if (tap) {
+        var box = line[0].el.getBoundingClientRect(), frame = art.getBoundingClientRect();
+        tap.style.left = (box.left + box.width / 2 - frame.left) + 'px';
+        tap.style.top = (box.top + box.height / 2 - frame.top) + 'px';
+        tap.classList.remove('is-on');
+        void tap.offsetWidth;
+        tap.classList.add('is-on');
+      }
+      (function next() {
+        mark(line[at]);
+        if (at >= REST) { art.classList.remove('is-playing'); timer = null; return; }
+        timer = setTimeout(next, line[at++].ms);
+      })();
+    }
+    function stop() { clearTimeout(timer); timer = null; art.classList.remove('is-playing'); }
+    mark(line[Math.min(REST, line.length - 1)]);
+    if ((reduce && reduce.matches) || !window.IntersectionObserver) return;
+    new IntersectionObserver(function (entries) {
+      if (entries[0].isIntersecting) { if (!timer) play(); } else stop();
+    }, { threshold: 0.8 }).observe(art);
+  }
+  var arts = document.querySelectorAll('[data-walk-art]');
+  for (var k = 0; k < arts.length; k++) walk(arts[k]);
 })();
 
 (function () {

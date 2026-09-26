@@ -266,6 +266,29 @@ p { margin: 0; }
 .spotlight p { color: var(--ink-secondary); }
 .features { padding-top: 24px; border-top: 1px solid var(--hairline); }
 
+/* Who it is for: a small picture of each reader's case, played once when it comes into view */
+.who-art {
+  position: relative; height: 150px; margin-bottom: 8px; padding: 16px 18px; border-radius: 8px; overflow: hidden;
+  background: var(--paper); display: flex; flex-direction: column; justify-content: center; gap: 12px;
+}
+.walk { margin: 0; font-family: var(--font-book); font-size: 17px; line-height: 1.5; color: var(--ink); }
+.walk .w { padding: 0 2px; margin: 0 -2px; border-radius: 3px; }
+.walk .w.is-now { background: var(--mark-wash); }
+.who-art-note { font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-secondary); }
+.who-art-face .walk { font-family: "OpenDyslexic", var(--font-ui); font-size: 13px; line-height: 1.9; letter-spacing: 0.04em; word-spacing: 0.2em; }
+.wave { display: flex; align-items: center; justify-content: space-between; height: 32px; }
+.wave i { width: 3px; flex-shrink: 0; height: var(--h); border-radius: 2px; background: var(--ink-secondary); opacity: 0.55; transform-origin: center; }
+.is-playing .wave i { animation: wave 0.9s ease-in-out infinite alternate; }
+.wave i:nth-child(3n) { animation-delay: -0.3s; }
+.wave i:nth-child(3n+1) { animation-delay: -0.6s; }
+.wave i:nth-child(4n) { animation-duration: 0.7s; }
+@keyframes wave { from { transform: scaleY(1); } to { transform: scaleY(0.35); } }
+.who-chips { display: flex; align-items: center; gap: 10px; }
+.chip { height: 26px; padding: 0 10px; border-radius: 13px; border: 1px solid var(--hairline); display: inline-flex; align-items: center; font-size: 13px; font-variant-numeric: tabular-nums; color: var(--ink); }
+.who-tap { position: absolute; left: 0; top: 0; width: 34px; height: 34px; margin: -17px 0 0 -17px; border-radius: 50%; background: var(--ink); opacity: 0; pointer-events: none; }
+.who-tap.is-on { animation: emu-tap 0.7s ease-out; }
+@media (prefers-reduced-motion: reduce) { .is-playing .wave i { animation: none; } }
+
 /* Accessibility */
 .face-list { display: flex; flex-direction: column; gap: 8px; padding-top: 8px; border-top: 1px solid var(--hairline); }
 .face-list > div { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
