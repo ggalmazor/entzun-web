@@ -222,7 +222,7 @@
   var sections = [].filter.call(document.querySelectorAll('main > *'), function (section) {
     return section.querySelector(':scope > .wrap');
   });
-  var ROOM = 0.55;
+  var ROOM = 0.9;
   var EDGE = 32;
   var height = 0, room = 0, queued = false;
 

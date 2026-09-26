@@ -233,7 +233,7 @@ p { margin: 0; }
 
 /* Scroll pinning, only with script and without Reduce Motion; see site.js. Each section's contents
    hold still for a stretch of scrolling, then give way to the next, on one plain sheet of paper. */
-.js-pin .home main > :not(:last-child)::after { content: ""; display: block; height: var(--pin-room, 55vh); }
+.js-pin .home main > :not(:last-child)::after { content: ""; display: block; height: var(--pin-room, 90vh); }
 .js-pin .home main > * > .wrap { position: sticky; top: var(--stick, 0px); }
 .js-pin .home .section.rule { border-top: none; }
 .js-pin .home .section.well, .js-pin .home .section.ink { background: none; color: var(--ink); }
