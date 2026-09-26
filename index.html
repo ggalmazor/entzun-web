@@ -20,7 +20,7 @@
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 <link rel="stylesheet" href="assets/site.css">
 </head>
-<body>
+<body class="home">
 
 <header class="site-header">
   <div class="wrap">
@@ -63,6 +63,7 @@
                   <span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 6.5v3M5.25 4v8M8 2.5v11M10.75 5v6M13.5 6.5v3"/></svg></span>
                   <span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 2.5h4v4M13.5 2.5L9 7M6.5 13.5h-4v-4M2.5 13.5L7 9"/></svg></span>
                 </span>
+                <span class="emu-head"><span class="emu-title">Moby-Dick; or, The Whale</span><span class="emu-show"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13.5 6.5h-4v-4M9.5 6.5L14 2M2.5 9.5h4v4M6.5 9.5L2 14"/></svg></span></span>
               </div>
               <div class="emu-page">
                 <div class="emu-text">
@@ -89,6 +90,7 @@
                   </div>
                 </div>
               </div>
+              <div class="emu-mini"><span class="emu-mini-play"><svg class="emu-icon-pause" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 3.5v9M10.5 3.5v9" stroke-width="2.5"/></svg><svg class="emu-icon-play" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 3.25l7.5 4.75-7.5 4.75z" fill="currentColor"/></svg></span><span class="emu-mini-bar"></span><span class="emu-speed">1×</span></div>
               <span class="emu-tap"></span>
             </div>
           </div>
@@ -209,16 +211,8 @@
         <img class="shot-phone" src="assets/screens/reader-iphone-narrating-dark.png" width="390" height="844" alt="The reader on iPhone in the Night theme, the same page with the spoken word highlighted">
       </div>
       <div class="spotlight">
-        <img class="shot-phone" src="assets/screens/reader-iphone-controls-hidden.png" width="390" height="844" alt="The reader on iPhone with the controls hidden: only the page, with the spoken word highlighted">
-        <div>
-          <div class="eyebrow">Hide controls</div>
-          <h3 class="title-detail">Everything but the book, gone.</h3>
-          <p>One tap and the toolbar, the player and the clock leave the screen. The page stays, edge to edge, and the narration carries on.</p>
-        </div>
-      </div>
-      <div class="spotlight flip">
         <div class="loop">
-          <div class="shot-phone emu" data-reader-emu role="img" aria-label="The Entzun reader on iPhone: a tap on a word in the next paragraph, and the marker and the narration move there">
+          <div class="shot-phone emu is-hidden" data-reader-emu="hide" role="img" aria-label="The Entzun reader on iPhone: a tap on Hide controls clears the toolbar and the player away, the narration carries on with only the page and a slim player left, and a tap on Show controls brings them back">
             <div class="emu-screen">
               <div class="emu-status"></div>
               <div class="emu-bar">
@@ -229,6 +223,7 @@
                   <span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 6.5v3M5.25 4v8M8 2.5v11M10.75 5v6M13.5 6.5v3"/></svg></span>
                   <span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 2.5h4v4M13.5 2.5L9 7M6.5 13.5h-4v-4M2.5 13.5L7 9"/></svg></span>
                 </span>
+                <span class="emu-head"><span class="emu-title">Moby-Dick; or, The Whale</span><span class="emu-show"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13.5 6.5h-4v-4M9.5 6.5L14 2M2.5 9.5h4v4M6.5 9.5L2 14"/></svg></span></span>
               </div>
               <div class="emu-page">
                 <div class="emu-text">
@@ -255,6 +250,58 @@
                   </div>
                 </div>
               </div>
+              <div class="emu-mini"><span class="emu-mini-play"><svg class="emu-icon-pause" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 3.5v9M10.5 3.5v9" stroke-width="2.5"/></svg><svg class="emu-icon-play" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 3.25l7.5 4.75-7.5 4.75z" fill="currentColor"/></svg></span><span class="emu-mini-bar"></span><span class="emu-speed">1×</span></div>
+              <span class="emu-tap"></span>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="eyebrow">Hide controls</div>
+          <h3 class="title-detail">Everything but the book, gone.</h3>
+          <p>One tap and the toolbar, the player and the clock leave the screen. The page stays, edge to edge, and the narration carries on.</p>
+        </div>
+      </div>
+      <div class="spotlight flip">
+        <div class="loop">
+          <div class="shot-phone emu" data-reader-emu role="img" aria-label="The Entzun reader on iPhone: a tap on a word in the next paragraph, and the marker and the narration move there">
+            <div class="emu-screen">
+              <div class="emu-status"></div>
+              <div class="emu-bar">
+                <span class="emu-back"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 3L5 8l5 5"/></svg>Library</span>
+                <span class="emu-tools">
+                  <span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 4h8M5.5 8h8M5.5 12h8M2.5 4h.1M2.5 8h.1M2.5 12h.1"/></svg></span>
+                  <span class="emu-aa">Aa</span>
+                  <span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 6.5v3M5.25 4v8M8 2.5v11M10.75 5v6M13.5 6.5v3"/></svg></span>
+                  <span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 2.5h4v4M13.5 2.5L9 7M6.5 13.5h-4v-4M2.5 13.5L7 9"/></svg></span>
+                </span>
+                <span class="emu-head"><span class="emu-title">Moby-Dick; or, The Whale</span><span class="emu-show"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13.5 6.5h-4v-4M9.5 6.5L14 2M2.5 9.5h4v4M6.5 9.5L2 14"/></svg></span></span>
+              </div>
+              <div class="emu-page">
+                <div class="emu-text">
+                  <p><span class="s">“Look ye! d’ye see this Spanish ounce of gold?”—holding up a broad bright coin to the sun—“it is a sixteen dollar piece, men. D’ye see it? Mr. Starbuck, hand me yon top-maul.”</span></p>
+                  <p><span class="s">While the mate was getting the hammer, Ahab, without speaking, was slowly rubbing the gold piece against the skirts of his jacket, as if to heighten its lustre, and without using any words was meanwhile lowly humming to himself, producing a sound so strangely muffled and inarticulate that it seemed the mechanical humming of the wheels of his vitality in him.</span></p>
+                  <p><span class="s">Receiving the top-maul from Starbuck, he advanced towards the main-mast with the hammer uplifted in one hand, exhibiting the gold with the other, and with a high raised voice exclaiming: </span><span class="s is-lit" data-emu-first>“Whosoever of ye raises me a white-headed <span class="w is-now">whale</span> with a wrinkled brow and a crooked jaw; whosoever of ye raises me that white-headed whale, with three holes punctured in his starboard fluke—look ye, whosoever of ye raises me that same white whale, he shall have this gold ounce, my boys!”</span></p>
+                  <p><span class="s" data-emu-second>“Huzza! huzza!” cried the seamen, as with swinging tarpaulins they hailed the act of nailing the gold to the mast.</span></p>
+                  <p><span class="s">“It’s a white whale, I say,” resumed Ahab, as he threw down the topmaul: “a white whale. Skin your eyes for him, men; look sharp for white water; if ye see but a bubble, sing out.”</span></p>
+                  <p><span class="s">All this while Tashtego, Daggoo, and Queequeg had looked on with even more intense interest and surprise than the rest, and at the mention of the wrinkled brow and crooked jaw they had started as if each was separately touched by some specific recollection.</span></p>
+                  <p><span class="s">“Captain Ahab,” said Tashtego, “that white whale must be the same that some call Moby Dick.”</span></p>
+                </div>
+              </div>
+              <div class="emu-player">
+                <div class="emu-card">
+                  <div class="emu-times"><span data-emu-played>10:05:42</span><span class="emu-track"></span><span data-emu-left>-14:31:18</span></div>
+                  <div class="emu-transport">
+                    <span></span>
+                    <span class="emu-transport-mid">
+                      <span class="emu-skip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4.5a8 8 0 1 1-6.2 2.9"/><path d="M12 1.5v3.2H8.8"/><text x="12" y="16" text-anchor="middle" font-size="7.5" font-family="system-ui, sans-serif" font-weight="700" fill="currentColor" stroke="none">15</text></svg></span>
+                      <span class="emu-play"><svg class="emu-icon-pause" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 3.5v9M10.5 3.5v9" stroke-width="2.5"/></svg><svg class="emu-icon-play" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 3.25l7.5 4.75-7.5 4.75z" fill="currentColor"/></svg></span>
+                      <span class="emu-skip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4.5a8 8 0 1 0 6.2 2.9"/><path d="M12 1.5v3.2h3.2"/><text x="12" y="16" text-anchor="middle" font-size="7.5" font-family="system-ui, sans-serif" font-weight="700" fill="currentColor" stroke="none">15</text></svg></span>
+                    </span>
+                    <span class="emu-speed">1×</span>
+                  </div>
+                </div>
+              </div>
+              <div class="emu-mini"><span class="emu-mini-play"><svg class="emu-icon-pause" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 3.5v9M10.5 3.5v9" stroke-width="2.5"/></svg><svg class="emu-icon-play" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 3.25l7.5 4.75-7.5 4.75z" fill="currentColor"/></svg></span><span class="emu-mini-bar"></span><span class="emu-speed">1×</span></div>
               <span class="emu-tap"></span>
             </div>
           </div>

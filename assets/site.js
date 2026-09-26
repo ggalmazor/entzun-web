@@ -1,7 +1,7 @@
-// The spacing sliders in the accessibility section reshape the text beside them, and the reader
-// frames narrate: the marker walks through a sentence, a later word is tapped, and the narration
-// moves there. The page reads fine without this file: the sliders stay hidden and each reader
-// frame is a still of the narrating page.
+// The spacing sliders in the accessibility section reshape the text beside them, the reader frames
+// narrate, and on the home page the section being read comes into focus while the rest step back.
+// The page reads fine without this file: the sliders stay hidden, each reader frame is a still of
+// the narrating page, and every section is at full strength.
 (function () {
   var needsScript = document.querySelectorAll('[data-needs-script]');
   for (var i = 0; i < needsScript.length; i++) needsScript[i].hidden = false;
@@ -71,12 +71,23 @@
     var left = frame.querySelector('[data-emu-left]');
     var first = words(frame.querySelector('[data-emu-first]'));
     var second = words(frame.querySelector('[data-emu-second]'));
+    var hiding = frame.getAttribute('data-reader-emu') === 'hide';
 
     var steps = [];
-    first.slice(0, WORDS_BEFORE_TAP).forEach(function (word) { steps.push({ word: word, ms: word.ms }); });
-    var skipped = first.slice(WORDS_BEFORE_TAP).reduce(function (sum, word) { return sum + word.ms; }, 0);
-    steps.push({ tap: second[0], skip: skipped, ms: 450 });
-    second.forEach(function (word) { steps.push({ word: word, ms: word.ms }); });
+    function narrate(list) { list.forEach(function (word) { steps.push({ word: word, ms: word.ms }); }); }
+    if (hiding) {
+      // The narration never stops: controls go away, the reading carries on, and they come back.
+      narrate(first.slice(0, 6));
+      steps.push({ ripple: frame.querySelector('.emu-tools > :last-child'), hide: true, ms: 500 });
+      narrate(first.slice(6, 22));
+      steps.push({ ripple: frame.querySelector('.emu-show'), hide: false, ms: 500 });
+      narrate(first.slice(22, 28));
+    } else {
+      narrate(first.slice(0, WORDS_BEFORE_TAP));
+      var skipped = first.slice(WORDS_BEFORE_TAP).reduce(function (sum, word) { return sum + word.ms; }, 0);
+      steps.push({ ripple: second[0].el, skip: skipped, ms: 450 });
+      narrate(second);
+    }
     steps.push({ ms: 1400 });
     steps.push({ reset: true, ms: 450 });
 
@@ -107,8 +118,8 @@
       if (word) word.el.classList.add('is-now');
     }
 
-    function showTap(word) {
-      var at = word.el.getBoundingClientRect(), screen = frame.getBoundingClientRect();
+    function showTap(el) {
+      var at = el.getBoundingClientRect(), screen = frame.getBoundingClientRect();
       tap.style.left = (at.left + at.width / 2 - screen.left) + 'px';
       tap.style.top = (at.top + at.height / 2 - screen.top) + 'px';
       tap.classList.remove('is-on');
@@ -118,6 +129,7 @@
 
     function begin() {
       frame.classList.add('is-snapping');
+      frame.classList.remove('is-hidden');
       mark(first[0]);
       seconds = PLAYED;
       showClock();
@@ -131,9 +143,10 @@
         mark(next.word);
         seconds += next.ms / 1000;
         showClock();
-      } else if (next.tap) {
-        showTap(next.tap);
-        seconds += next.skip / 1000;
+      } else if (next.ripple) {
+        showTap(next.ripple);
+        if (next.skip) seconds += next.skip / 1000;
+        if (next.hide !== undefined) frame.classList.toggle('is-hidden', next.hide);
       } else if (next.reset) {
         frame.classList.add('is-fading');
         timer = setTimeout(function () {
@@ -200,4 +213,41 @@
   }
 
   for (var i = 0; i < frames.length; i++) setUp(frames[i]);
+})();
+
+(function () {
+  if (!document.body.classList.contains('home') || !window.matchMedia) return;
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
+  var sections = document.querySelectorAll('main > *');
+  var root = document.documentElement;
+  var queued = false;
+
+  // A section is in focus when it spans the middle of the window, or when most of it is in view,
+  // so a short section reached by a link or at the end of the page is not left receded.
+  function update() {
+    queued = false;
+    var height = window.innerHeight, middle = height / 2;
+    for (var i = 0; i < sections.length; i++) {
+      var box = sections[i].getBoundingClientRect();
+      if (!box.height) continue;
+      var shown = Math.min(box.bottom, height) - Math.max(box.top, 0);
+      var focus = (box.top <= middle && box.bottom >= middle) || shown >= Math.min(box.height, height) * 0.6;
+      sections[i].classList.toggle('is-focus', focus);
+      if (focus) sections[i].classList.add('is-seen');
+    }
+  }
+  function queue() {
+    if (queued) return;
+    queued = true;
+    window.requestAnimationFrame(update);
+  }
+  function apply() {
+    root.classList.toggle('js-focus', !reduce.matches);
+    update();
+  }
+
+  apply();
+  window.addEventListener('scroll', queue, { passive: true });
+  window.addEventListener('resize', queue);
+  if (reduce.addEventListener) reduce.addEventListener('change', apply);
 })();
