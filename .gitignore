@@ -1,1 +1,4 @@
 .DS_Store
+
+# Riptide artifacts (cloud-synced)
+.humanlayer/
