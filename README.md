@@ -13,7 +13,8 @@ The website for [Entzun](https://entzun.ink): the home page, the privacy policy 
 | `assets/site.css` | All styles. The colour, type, spacing and radius values are the app's design tokens (`docs/design/tokens.json` in the app repo), in Paper (light) and Night (dark) via `prefers-color-scheme`. |
 | `assets/site.js` | The spacing sliders in the accessibility section, and the narration in the reader frames. Nothing else runs script, and the page reads fine without it. |
 | `assets/fonts/` | Newsreader, Atkinson Hyperlegible Next, Lexend, Luciole and OpenDyslexic, self-hosted, with their licence files beside them. Copied from `App/Entzun/Fonts` in the app repo. |
-| `assets/screens/` | Rendered screens from `docs/design/screens` in the app repo. |
+| `assets/screens/` | Rendered screens from `docs/design/screens` in the app repo, except `library-mac.png`, which is rendered from `design/library-mac.html`. |
+| `design/` | `library-mac.html`, the Mac library artboard from the app repo with real covers in place of the placeholders: public-domain paintings from Standard Ebooks, cropped square in `design/covers/`, and the tinted Entzun mark on the two books without a cover. Render it with headless Chrome at 1280 by 800 and a device scale of 2, then reduce it to a 256-colour palette. |
 | `assets/logo/` | The Entzun mark. `entzun-logo.svg` is the editable master; the flattened marks, the App Store icon, and the lockups are derived from it, and its `README.md` holds the rules and the prompt for rebuilding everything when the mark changes. |
 | `assets/*.png` | `favicon-16.png`, `favicon-32.png`, `apple-touch-icon.png`, `icon-512.png`, and `social-card.png`, rendered from `assets/logo/` with headless Chromium. Re-render them rather than editing them. |
 | `CNAME` | The custom domain, so Pages keeps it across deploys. |
