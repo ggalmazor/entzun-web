@@ -11,10 +11,9 @@ The website for [Entzun](https://entzun.ink): the home page, the privacy policy 
 | `support.html` | Support, FAQ and acknowledgements |
 | `404.html` | Served by Pages for unknown paths |
 | `assets/site.css` | All styles. The colour, type, spacing and radius values are the app's design tokens (`docs/design/tokens.json` in the app repo), in Paper (light) and Night (dark) via `prefers-color-scheme`. |
-| `assets/site.js` | The spacing sliders in the accessibility section and the pause button on the looping videos. Nothing else runs script, and the page reads fine without it. |
+| `assets/site.js` | The spacing sliders in the accessibility section, and the narration in the reader frames. Nothing else runs script, and the page reads fine without it. |
 | `assets/fonts/` | Newsreader, Atkinson Hyperlegible Next, Lexend, Luciole and OpenDyslexic, self-hosted, with their licence files beside them. Copied from `App/Entzun/Fonts` in the app repo. |
 | `assets/screens/` | Rendered screens from `docs/design/screens` in the app repo. |
-| `assets/video/` | `reader-loop.mp4` and `reader-loop.webm`, the reader loop in the hero and in the "Tap a word, hear it" card. Same aspect as `reader-iphone-narrating.png`, which is their poster. |
 | `assets/logo/` | The Entzun mark. `entzun-logo.svg` is the editable master; the flattened marks, the App Store icon, and the lockups are derived from it, and its `README.md` holds the rules and the prompt for rebuilding everything when the mark changes. |
 | `assets/*.png` | `favicon-16.png`, `favicon-32.png`, `apple-touch-icon.png`, `icon-512.png`, and `social-card.png`, rendered from `assets/logo/` with headless Chromium. Re-render them rather than editing them. |
 | `CNAME` | The custom domain, so Pages keeps it across deploys. |
@@ -39,5 +38,7 @@ The launch price, 19.99 until 1 January 2027, is in the hero line and in the Pri
 The "From the beta" section carries the class `is-placeholder`, which hides it. Remove the class once the quotes in it are real.
 
 ## Editing
+
+The iPhone reader in the hero and in "Tap a word" is not a video or a screenshot but live HTML: the `emu` markup in `index.html`, styled in `site.css` and driven by `site.js`. It is the reader artboard from the app repo (`docs/design/artboards/Reader.dc.html`), with sizes in artboard points scaled to the frame's width, so it follows Paper and Night like the rest of the page. The markup appears twice, once per frame; change both. Without script, or with Reduce Motion, it is a still of the narrating page.
 
 Every page shares the header and footer by copy, since there is no build step. Change them in all three files. Text lives in the HTML; the only styling in the pages is the odd inline width.
