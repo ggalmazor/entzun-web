@@ -11,7 +11,7 @@ The website for [Entzun](https://entzun.ink): the home page, the privacy policy 
 | `support.html` | Support, FAQ and acknowledgements |
 | `404.html` | Served by Pages for unknown paths |
 | `assets/site.css` | All styles. The colour, type, spacing and radius values are the app's design tokens (`docs/design/tokens.json` in the app repo), in Paper (light) and Night (dark) via `prefers-color-scheme`. |
-| `assets/site.js` | The spacing sliders in the accessibility section, the narration in the reader frames, and the scroll focus on the home page. Nothing else runs script, and the page reads fine without it. |
+| `assets/site.js` | The spacing sliders in the accessibility section, the narration in the reader frames, and the scroll pinning on the home page. Nothing else runs script, and the page reads fine without it. |
 | `assets/fonts/` | Newsreader, Atkinson Hyperlegible Next, Lexend, Luciole and OpenDyslexic, self-hosted, with their licence files beside them. Copied from `App/Entzun/Fonts` in the app repo. |
 | `assets/screens/` | Rendered screens from `docs/design/screens` in the app repo, except `library-mac.png`, which is rendered from `design/library-mac.html`. |
 | `design/` | `library-mac.html`, the Mac library artboard from the app repo with real covers in place of the placeholders: public-domain paintings from Standard Ebooks, cropped square in `design/covers/`, and the tinted Entzun mark on the two books without a cover. Render it with headless Chrome at 1280 by 800 and a device scale of 2, then reduce it to a 256-colour palette. |
@@ -42,6 +42,6 @@ The "From the beta" section carries the class `is-placeholder`, which hides it. 
 
 The iPhone reader in the hero, in "Hide controls" and in "Tap a word" is not a video or a screenshot but live HTML: the `emu` markup in `index.html`, styled in `site.css` and driven by `site.js`. It is the reader artboard from the app repo (`docs/design/artboards/Reader.dc.html`), with sizes in artboard points scaled to the frame's width, so it follows Paper and Night like the rest of the page. The markup appears three times, once per frame; change all three. `data-reader-emu="hide"` makes a frame toggle the controls instead of tapping a word. Without script, or with Reduce Motion, it is a still of the narrating page.
 
-On the home page every section is a panel on a canvas that stays still. As the page scrolls, the section being read comes into focus and the others recede to half strength, as the reader treats the narrated sentence; the first time a section comes into focus its contents rise into place. Without script, or with Reduce Motion, every section is at full strength.
+On the home page each section's contents hold still for a while as the page scrolls (`position: sticky`, centred when they fit the window, held by their end when they do not), then fade and lift away as the next section rises to meet them. While this runs the page is one plain sheet of paper, without the section bands, so nothing but the contents moves. The last section is not held, so the page ends normally. Without script, or with Reduce Motion, it is an ordinary page with its bands.
 
 Every page shares the header and footer by copy, since there is no build step. Change them in all three files. Text lives in the HTML; the only styling in the pages is the odd inline width.

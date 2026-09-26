@@ -1,7 +1,7 @@
 // The spacing sliders in the accessibility section reshape the text beside them, the reader frames
-// narrate, and on the home page the section being read comes into focus while the rest step back.
-// The page reads fine without this file: the sliders stay hidden, each reader frame is a still of
-// the narrating page, and every section is at full strength.
+// narrate, and on the home page each section holds still for a while as the page scrolls, then gives
+// way to the next. The page reads fine without this file: the sliders stay hidden, each reader frame
+// is a still of the narrating page, and the sections scroll as an ordinary page.
 (function () {
   var needsScript = document.querySelectorAll('[data-needs-script]');
   for (var i = 0; i < needsScript.length; i++) needsScript[i].hidden = false;
@@ -218,36 +218,77 @@
 (function () {
   if (!document.body.classList.contains('home') || !window.matchMedia) return;
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
-  var sections = document.querySelectorAll('main > *');
   var root = document.documentElement;
-  var queued = false;
+  var sections = [].filter.call(document.querySelectorAll('main > *'), function (section) {
+    return section.querySelector(':scope > .wrap');
+  });
+  var ROOM = 0.55;
+  var EDGE = 32;
+  var height = 0, room = 0, queued = false;
 
-  // A section is in focus when it spans the middle of the window, or when most of it is in view,
-  // so a short section reached by a link or at the end of the page is not left receded.
+  function clamp(value) { return Math.max(0, Math.min(1, value)); }
+
+  // A section that fits the window is held in its middle; a taller one scrolls until its end is in
+  // view and is held there.
+  function measure() {
+    height = window.innerHeight;
+    room = height * ROOM;
+    root.style.setProperty('--pin-room', room + 'px');
+    sections.forEach(function (section) {
+      var wrap = section.querySelector(':scope > .wrap');
+      var own = wrap.offsetHeight;
+      var stick = own <= height - 2 * EDGE ? (height - own) / 2 : height - own - EDGE;
+      section.style.setProperty('--stick', Math.round(stick) + 'px');
+      section.pinnedBottom = stick + own;
+    });
+  }
+
+  // Coming in: fully shown once it is a little way up the window. Going out: it fades and lifts away
+  // as the next section rises to meet it, so one gives way to the other with no empty window between.
   function update() {
     queued = false;
-    var height = window.innerHeight, middle = height / 2;
-    for (var i = 0; i < sections.length; i++) {
-      var box = sections[i].getBoundingClientRect();
-      if (!box.height) continue;
-      var shown = Math.min(box.bottom, height) - Math.max(box.top, 0);
-      var focus = (box.top <= middle && box.bottom >= middle) || shown >= Math.min(box.height, height) * 0.6;
-      sections[i].classList.toggle('is-focus', focus);
-      if (focus) sections[i].classList.add('is-seen');
-    }
+    var visible = sections.filter(function (section) { return section.offsetHeight; });
+    visible.forEach(function (section, i) {
+      var wrap = section.querySelector(':scope > .wrap');
+      var box = wrap.getBoundingClientRect();
+      var shown = clamp((height - box.top) / (height * 0.45));
+      var next = visible[i + 1];
+      var gone = 0;
+      if (next) {
+        var nextTop = next.querySelector(':scope > .wrap').getBoundingClientRect().top;
+        gone = clamp((height - nextTop) / Math.max(height - section.pinnedBottom, height * 0.3));
+      }
+      wrap.style.opacity = Math.min(shown, 1 - gone);
+      wrap.style.transform = 'translateY(' + Math.round((1 - shown) * 28 - gone * 28) + 'px)';
+    });
   }
+
   function queue() {
     if (queued) return;
     queued = true;
     window.requestAnimationFrame(update);
   }
+
   function apply() {
-    root.classList.toggle('js-focus', !reduce.matches);
-    update();
+    var on = !reduce.matches;
+    root.classList.toggle('js-pin', on);
+    if (on) {
+      measure();
+      update();
+    } else {
+      root.style.removeProperty('--pin-room');
+      sections.forEach(function (section) {
+        var wrap = section.querySelector(':scope > .wrap');
+        section.style.removeProperty('--stick');
+        wrap.style.opacity = '';
+        wrap.style.transform = '';
+      });
+    }
   }
 
   apply();
-  window.addEventListener('scroll', queue, { passive: true });
-  window.addEventListener('resize', queue);
+  window.addEventListener('scroll', function () { if (!reduce.matches) queue(); }, { passive: true });
+  window.addEventListener('resize', function () { if (!reduce.matches) { measure(); queue(); } });
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(apply);
   if (reduce.addEventListener) reduce.addEventListener('change', apply);
 })();

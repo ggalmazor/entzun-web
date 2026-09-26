@@ -21,7 +21,6 @@
   --warn: #A8480A;
   --mark-wash: rgba(255, 213, 74, 0.5);
   --veil: rgba(250, 248, 244, 0.85);
-  --canvas: #EAE5DA;
   --mark-rule: #C2570B;
   --shadow-modal: 0 12px 40px rgba(0, 0, 0, 0.18);
   --font-book: "Newsreader", Georgia, "Times New Roman", serif;
@@ -42,7 +41,6 @@
     --warn: #FFB340;
     --mark-wash: rgba(255, 200, 61, 0.3);
     --veil: rgba(18, 19, 22, 0.85);
-    --canvas: #0B0C0E;
     --mark-rule: #FFB340;
     --shadow-modal: 0 12px 40px rgba(0, 0, 0, 0.5);
   }
@@ -198,12 +196,10 @@ p { margin: 0; }
 .site-nav a { text-decoration: none; }
 .site-nav a[aria-current="page"] { border-bottom: 2px solid var(--ink); padding-bottom: 2px; }
 
-/* Sections: each one a panel on the canvas, with the canvas showing between them. */
-body.home { background: var(--canvas); }
-.home main { display: flex; flex-direction: column; gap: 14px; padding: 14px; }
-.home .hero, .home .section { background: var(--paper); border-radius: 24px; overflow: hidden; }
-.home .site-header { border-bottom: none; }
+/* Sections */
 .section { padding: 72px 0; }
+.section.rule { border-top: 1px solid var(--hairline); }
+.section.well { background: var(--well); }
 .section.ink { background: var(--ink); color: var(--paper); }
 .section.ink .eyebrow { color: #A49E94; }
 .section.ink p { color: #E6E3DD; }
@@ -226,7 +222,7 @@ body.home { background: var(--canvas); }
 .two-col > .rest { flex-grow: 1; display: flex; flex-direction: column; gap: 16px; }
 
 .card { padding: 28px; background: var(--well); border-radius: 12px; display: flex; flex-direction: column; gap: 12px; }
-.section.well .card { gap: 16px; }
+.section.well .card { background: var(--paper); gap: 16px; }
 .card .numeral { font-family: var(--font-book); font-size: 40px; line-height: 1; font-weight: 500; color: var(--ink-secondary); }
 .feature { display: flex; flex-direction: column; gap: 10px; }
 .feature svg { width: 24px; height: 24px; }
@@ -235,10 +231,16 @@ body.home { background: var(--canvas); }
 .feature p { color: var(--ink-secondary); }
 .feature a { color: var(--ink); }
 
-/* Scroll focus, only with script and without Reduce Motion; see site.js. Only the contents move. */
-.js-focus .home main > * > .wrap { transition: opacity 0.6s ease, transform 0.8s cubic-bezier(0.2, 0.7, 0.2, 1); }
-.js-focus .home main > :not(.is-focus) > .wrap { opacity: 0.5; }
-.js-focus .home main > :not(.is-seen) > .wrap { opacity: 0; transform: translateY(32px); }
+/* Scroll pinning, only with script and without Reduce Motion; see site.js. Each section's contents
+   hold still for a stretch of scrolling, then give way to the next, on one plain sheet of paper. */
+.js-pin .home main > :not(:last-child)::after { content: ""; display: block; height: var(--pin-room, 55vh); }
+.js-pin .home main > * > .wrap { position: sticky; top: var(--stick, 0px); }
+.js-pin .home .section.rule { border-top: none; }
+.js-pin .home .section.well, .js-pin .home .section.ink { background: none; color: var(--ink); }
+.js-pin .home .section.well .card { background: var(--well); }
+.js-pin .home .section.ink .eyebrow { color: var(--ink-secondary); }
+.js-pin .home .section.ink p { color: var(--ink-secondary); }
+.js-pin .home .pill.outline { color: var(--ink); border-color: var(--hairline); }
 
 /* Hero */
 .hero { padding: 88px 0 72px; }
@@ -299,7 +301,7 @@ body.home { background: var(--canvas); }
 .library .shot-mac { width: 668px; border-radius: 12px 12px 0 0; border-bottom: none; }
 
 /* Footer */
-.site-footer { padding: 32px 0 48px; }
+.site-footer { border-top: 1px solid var(--hairline); padding: 40px 0 48px; }
 .site-footer .wrap { display: flex; flex-direction: column; gap: 32px; }
 .footer-top { display: flex; align-items: center; justify-content: space-between; gap: 32px; }
 .footer-top > div { display: flex; flex-direction: column; gap: 4px; }
@@ -350,8 +352,6 @@ body.home { background: var(--canvas); }
   .site-nav { gap: 18px; font-size: 14px; }
   .site-nav .hide-phone { display: none; }
   .section { padding: 40px 0; }
-  .home main { gap: 8px; padding: 8px; }
-  .home .hero, .home .section { border-radius: 16px; }
   .section-head.split { flex-direction: column; align-items: flex-start; gap: 16px; }
   .stack { gap: 20px; }
   .grid-3, .grid-3.loose, .grid-2 { grid-template-columns: minmax(0, 1fr); gap: 16px; }
